@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Xinchen Gao · Data &amp; AI Analytics</title>
+<meta name="description" content="Xinchen Gao — M.S. in Business Analytics at Columbia University (Dec 2026). Data and AI analytics: A/B testing, funnel and retention analysis, SQL/Python, and AI agents for analytics workflows. Open to full-time roles from January 2027.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://xinchengao.github.io/">
+<meta property="og:title" content="Xinchen Gao · Data &amp; AI Analytics">
+<meta property="og:description" content="M.S. Business Analytics at Columbia. Experimentation, product analytics, and AI agents for analytics workflows. Open to full-time roles from January 2027.">
+<meta property="og:image" content="https://xinchengao.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14171d" media="(prefers-color-scheme: dark)">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#fff;--ink:#14213d;--body2:#3a4356;--muted:#5d6676;--faint:#8a92a1;--rule:#e5e8ee;--accent:#1f3a68;--accent2:#2f6db5;--soft:#f4f7fb;--chip:#eef2f8;--chipink:#2a3d5e;--card:#fff;--navbg:rgba(255,255,255,.86);--shadow:0 1px 2px rgba(20,33,61,.05),0 4px 16px rgba(20,33,61,.05);color-scheme:light}
+  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14171d;--ink:#e6e9ef;--body2:#c4cad4;--muted:#9ea6b3;--faint:#7a828f;--rule:#2a2f38;--accent:#a8c4ee;--accent2:#7fb0f5;--soft:#1a1f28;--chip:#222a36;--chipink:#c9d6ea;--card:#191d25;--navbg:rgba(20,23,29,.86);--shadow:none;color-scheme:dark}}
+  :root[data-theme="dark"]{--bg:#14171d;--ink:#e6e9ef;--body2:#c4cad4;--muted:#9ea6b3;--faint:#7a828f;--rule:#2a2f38;--accent:#a8c4ee;--accent2:#7fb0f5;--soft:#1a1f28;--chip:#222a36;--chipink:#c9d6ea;--card:#191d25;--navbg:rgba(20,23,29,.86);--shadow:none;color-scheme:dark}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .page{max-width:900px;margin:0 auto;padding:48px 24px 64px}
+  a{color:var(--accent2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  p{margin:0 0 12px}
+  .serif{font-family:"Source Serif 4",Georgia,serif}
+
+  /* nav */
+  .topnav{position:sticky;top:0;z-index:10;background:var(--navbg);-webkit-backdrop-filter:saturate(1.4) blur(10px);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--rule)}
+  .navin{max-width:900px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;gap:22px}
+  .brand{font-family:"Source Serif 4",Georgia,serif;font-weight:700;font-size:1.08rem;color:var(--ink);margin-right:auto;white-space:nowrap}
+  .brand:hover{text-decoration:none}
+  .navlinks{display:flex;align-items:center;gap:22px;font-size:.93rem}
+  .navlinks a{color:var(--muted);white-space:nowrap;padding:16px 0;border-bottom:2px solid transparent}
+  .navlinks a:hover{color:var(--ink);text-decoration:none}
+  .navlinks a.on{color:var(--ink);border-bottom-color:var(--accent2)}
+  .theme{background:none;border:1px solid var(--rule);border-radius:8px;width:34px;height:34px;display:grid;place-items:center;cursor:pointer;color:var(--muted);padding:0;flex:none}
+  .theme:hover{color:var(--ink)}
+  .theme svg{width:16px;height:16px;fill:currentColor}
+  .theme .sun{display:none}
+  :root[data-theme="dark"] .theme .sun{display:block}
+  :root[data-theme="dark"] .theme .moon{display:none}
+  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .theme .sun{display:block}:root:not([data-theme="light"]) .theme .moon{display:none}}
+
+  /* hero */
+  .hero{display:grid;grid-template-columns:200px 1fr;gap:40px;align-items:center}
+  .hero img{width:200px;height:200px;object-fit:cover;border-radius:14px;box-shadow:var(--shadow)}
+  h1{font-family:"Source Serif 4",Georgia,serif;font-weight:700;font-size:2.5rem;line-height:1.15;margin:0;letter-spacing:-.3px}
+  .role{font-weight:600;color:var(--accent);font-size:1.08rem;margin:6px 0 2px}
+  .school{color:var(--muted);font-size:.97rem;margin-bottom:14px}
+  .intro{color:var(--body2);margin:0 0 18px}
+  .cta{display:flex;flex-wrap:wrap;gap:10px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:9px;font-weight:600;font-size:.93rem;border:1px solid var(--rule);color:var(--ink);background:var(--card)}
+  .btn:hover{text-decoration:none;border-color:var(--accent2)}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  :root[data-theme="dark"] .btn.primary{color:#14171d}
+  @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.primary{color:#14171d}}
+  .btn.primary:hover{filter:brightness(1.1)}
+  .btn svg{width:16px;height:16px;fill:currentColor}
+
+  .open{margin:30px 0 0;padding:14px 18px;border-radius:10px;background:var(--soft);border:1px solid var(--rule);display:flex;gap:12px;align-items:flex-start;font-size:.97rem;color:var(--body2)}
+  .dot{flex:none;width:9px;height:9px;border-radius:50%;background:#2e9d5b;margin-top:8px;box-shadow:0 0 0 4px rgba(46,157,91,.15)}
+  .open b{color:var(--ink)}
+
+  /* sections */
+  h2{font-family:"Source Serif 4",Georgia,serif;font-weight:700;font-size:1.45rem;margin:56px 0 18px;color:var(--ink);scroll-margin-top:76px;display:flex;align-items:center;gap:12px}
+  h2::after{content:"";flex:1;height:1px;background:var(--rule)}
+
+  /* impact */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .stat{padding:16px 16px 14px;border:1px solid var(--rule);border-radius:12px;background:var(--card);box-shadow:var(--shadow)}
+  .stat .n{font-family:"Source Serif 4",Georgia,serif;font-weight:700;font-size:1.9rem;line-height:1.1;color:var(--accent);font-variant-numeric:tabular-nums}
+  .stat .k{font-size:.86rem;color:var(--body2);margin-top:6px;line-height:1.45}
+  .stat .w{font-size:.78rem;color:var(--faint);margin-top:6px;text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+
+  /* focus areas */
+  .areas{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .area{padding:18px;border-radius:12px;background:var(--soft);border:1px solid var(--rule)}
+  .area h3{margin:0 0 6px;font-size:1rem;font-weight:600}
+  .area p{margin:0;font-size:.92rem;color:var(--body2);line-height:1.55}
+
+  /* experience */
+  .job{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:20px 0;border-bottom:1px solid var(--rule)}
+  .job:last-child{border-bottom:0}
+  .job .when{color:var(--faint);font-size:.88rem;font-variant-numeric:tabular-nums;line-height:1.5;padding-top:2px}
+  .job .when span{display:block}
+  .job .co{font-weight:700;font-size:1.05rem}
+  .job .ti{color:var(--accent);font-weight:600;font-size:.95rem;margin-bottom:8px}
+  .job ul{margin:0;padding-left:18px;color:var(--body2);font-size:.95rem}
+  .job li{margin:0 0 6px}
+  .job li::marker{color:var(--faint)}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .tag{font-size:.76rem;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--chip);color:var(--chipink)}
+
+  /* skills */
+  .skills{display:grid;grid-template-columns:170px 1fr;gap:14px 24px;align-items:baseline}
+  .skills dt{font-weight:600;font-size:.95rem}
+  .skills dd{margin:0;display:flex;flex-wrap:wrap;gap:6px}
+  .skills .tag{font-size:.84rem;font-weight:500;padding:4px 11px}
+
+  /* education */
+  .edu{display:grid;grid-template-columns:1fr auto;gap:2px 16px;margin:0 0 18px}
+  .edu .s{font-weight:700}
+  .edu .d{color:var(--body2);font-size:.95rem}
+  .edu .when{color:var(--faint);font-size:.9rem;text-align:right;font-variant-numeric:tabular-nums}
+
+  /* contact */
+  .contact{padding:28px;border-radius:14px;background:var(--soft);border:1px solid var(--rule);text-align:center}
+  .contact p{color:var(--body2);max-width:560px;margin:0 auto 18px}
+  .contact .cta{justify-content:center}
+
+  footer{margin-top:48px;padding-top:14px;border-top:1px solid var(--rule);color:var(--faint);font-size:.84rem}
+
+  @media(max-width:760px){
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .areas{grid-template-columns:1fr}
+  }
+  @media(max-width:640px){
+    .page{padding:32px 16px 56px}
+    .navin{padding:0 16px;gap:12px}
+    .brand{display:none}
+    .navlinks{gap:18px;font-size:.9rem;overflow-x:auto;scrollbar-width:none;flex:1}
+    .navlinks::-webkit-scrollbar{display:none}
+    .hero{grid-template-columns:1fr;gap:20px}
+    .hero img{width:132px;height:132px}
+    h1{font-size:2.05rem}
+    .job{grid-template-columns:1fr;gap:4px}
+    .job .when span{display:inline}
+    .job .when span+span::before{content:" · "}
+    .skills{grid-template-columns:1fr;gap:6px}
+    .skills dd{margin-bottom:10px}
+    .edu{grid-template-columns:1fr}
+    .edu .when{text-align:left}
+    .contact{padding:22px 16px}
+  }
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <div class="navin">
+    <a class="brand" href="#">Xinchen Gao</a>
+    <div class="navlinks">
+      <a href="#impact">Impact</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+      <a href="Gao_Xinchen_Resume.pdf">Résumé</a>
+    </div>
+    <button class="theme" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <svg class="moon" viewBox="0 0 24 24"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zM11 2h2v3h-2zm0 17h2v3h-2zM2 11h3v2H2zm17 0h3v2h-3zM4.2 5.6l1.4-1.4 2.1 2.1-1.4 1.4zm12.1 12.1 1.4-1.4 2.1 2.1-1.4 1.4zM4.2 18.4l2.1-2.1 1.4 1.4-2.1 2.1zM16.3 6.3l2.1-2.1 1.4 1.4-2.1 2.1z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<main class="page">
+
+  <section class="hero">
+    <img src="img/profile.jpg" alt="Portrait of Xinchen Gao" width="200" height="200">
+    <div>
+      <h1>Xinchen Gao</h1>
+      <div class="role">Data &amp; AI Analytics</div>
+      <div class="school">M.S. Business Analytics · Columbia University · New York, NY</div>
+      <p class="intro">I turn product and operational data into decisions. My background is in funnel and retention analysis, A/B testing, and SQL/Python pipelines at companies like Tencent and EY. Most recently, at Meituan, I built and evaluated AI agents that automate recurring analytics work.</p>
+      <div class="cta">
+        <a class="btn primary" href="Gao_Xinchen_Resume.pdf"><svg viewBox="0 0 24 24"><path d="M11 3h2v9.2l3.3-3.3 1.4 1.4L12 16 6.3 10.3l1.4-1.4 3.3 3.3zM4 18h16v2H4z"/></svg>Download résumé</a>
+        <a class="btn" href="mailto:gaoxinchen622@gmail.com"><svg viewBox="0 0 24 24"><path d="M2 5h20v14H2zm2 2v.5l8 5 8-5V7zm16 2.8-8 5-8-5V17h16z"/></svg>Email</a>
+        <a class="btn" href="https://www.linkedin.com/in/xinchen-gao"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zm6.5 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.2 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4z"/></svg>LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="open"><span class="dot"></span><span><b>Open to full-time roles starting January 2027</b> in data analytics, data science, product analytics, and AI analytics. Based in New York; M.S. program is STEM-designated.</span></div>
+
+  <h2 id="impact">Selected impact</h2>
+  <div class="stats">
+    <div class="stat"><div class="n">−24.5%</div><div class="k">recurring reporting errors, via an evaluation framework for agent-generated reports</div><div class="w">Meituan</div></div>
+    <div class="stat"><div class="n">+4.5%</div><div class="k">next-video play rate from an A/B test on recommendation flow (12.1M users)</div><div class="w">Tencent</div></div>
+    <div class="stat"><div class="n">+18%</div><div class="k">player participation after redesigning event entry flow and reward visibility</div><div class="w">Xinshichuangyu</div></div>
+    <div class="stat"><div class="n">~60%</div><div class="k">less report prep time by replacing manual exports with Python ETL</div><div class="w">TFlying</div></div>
+  </div>
+
+  <h2 id="focus">What I do</h2>
+  <div class="areas">
+    <div class="area"><h3>Experimentation</h3><p>Design, launch, and read out A/B tests on product flows, then track the result with KPI dashboards and weekly stakeholder updates.</p></div>
+    <div class="area"><h3>Product &amp; funnel analytics</h3><p>Reconstruct user journeys from raw logs with SQL window functions, locate drop-off stages, and quantify the conversion lost at each step.</p></div>
+    <div class="area"><h3>AI for analytics</h3><p>Package reporting workflows into reusable agent skills and evaluate their outputs for accuracy, completeness, and metric consistency.</p></div>
+  </div>
+
+  <h2 id="experience">Experience</h2>
+
+  <div class="job">
+    <div class="when"><span>May – Aug 2026</span><span>Beijing</span></div>
+    <div>
+      <div class="co">Meituan</div>
+      <div class="ti">AI Analytics Intern</div>
+      <ul>
+        <li>Refined AI agents and packaged recurring reporting workflows into reusable <b>agent skills</b> for cross-team adoption, saving ~10 hours of manual analysis per week and helping strategy teams find performance drivers faster.</li>
+        <li>Built a <b>data quality evaluation framework</b> for agent-generated weekly and monthly reports. It checks SQL output accuracy, extraction completeness, Excel stitching mismatches, and metric consistency, and cut recurring reporting errors by 24.5%.</li>
+        <li>Improved agent tool-use reliability across SQL generation, data retrieval, Excel stitching, and report synthesis through prompt engineering and human-in-the-loop refinement.</li>
+        <li>Developed an AI-assisted HTML dashboard for brand anomaly analysis that surfaces fluctuations across weighted brand segments for faster root-cause investigation.</li>
+      </ul>
+      <div class="tags"><span class="tag">AI Agents</span><span class="tag">Agent Evaluation</span><span class="tag">Prompt Engineering</span><span class="tag">SQL</span></div>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="when"><span>Nov – Dec 2024</span><span>Beijing</span></div>
+    <div>
+      <div class="co">Tencent</div>
+      <div class="ti">Data Analysis Intern · Tencent Video</div>
+      <ul>
+        <li>Ran a full-funnel retention analysis on <b>12.1M users</b>, found a major drop-off after the first completed video, and designed an <b>A/B test</b> on the recommendation flow that raised next-video play rate by 4.5%.</li>
+        <li>Mapped user journeys from app open to playback, completion, and next-video start with SQL window functions (<code>RANK</code>, <code>LEAD</code>) to pinpoint where users disengaged.</li>
+        <li>Compared retained and churned users in Python (Pandas, NumPy) across watch time, session frequency, and recommendation clicks to find the signals most correlated with repeat usage.</li>
+        <li>Worked with cross-functional teams to launch the experiment, built a KPI monitoring dashboard, and presented findings in weekly stakeholder updates.</li>
+      </ul>
+      <div class="tags"><span class="tag">A/B Testing</span><span class="tag">Retention</span><span class="tag">SQL</span><span class="tag">Python</span></div>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="when"><span>Jan – Mar 2024</span><span>Beijing</span></div>
+    <div>
+      <div class="co">Beijing Xinshichuangyu Technology</div>
+      <div class="ti">Data Analysis Intern · Gaming</div>
+      <ul>
+        <li>Raised player participation by <b>18%</b> over the previous event design by analyzing gameplay funnels for entry-to-match drop-offs, then designing and validating an A/B test on event entry flow and reward visibility.</li>
+        <li>Extracted and standardized 300K+ player records from MySQL with optimized joins and index-backed aggregations, producing D1 retention and participation datasets for weekly product decisions.</li>
+        <li>Sessionized 2GB+ of gameplay logs in SQL and Python to rebuild the entry → match start → completion funnel and quantify step-level conversion loss.</li>
+      </ul>
+      <div class="tags"><span class="tag">Funnel Analysis</span><span class="tag">A/B Testing</span><span class="tag">MySQL</span></div>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="when"><span>Jul – Aug 2023</span><span>Beijing</span></div>
+    <div>
+      <div class="co">Ernst &amp; Young (EY)</div>
+      <div class="ti">Risk &amp; Compliance Intern</div>
+      <ul>
+        <li>Extracted and validated physician engagement and reimbursement records with SQL and structured Excel reconciliation, reviewing 150+ records a day for audit-ready client reporting.</li>
+        <li>Automated reconciliation and validation in Python with data checks and anomaly-detection rules, and resolved mismatches across activity logs, event records, and payment documents.</li>
+        <li>Streamlined tracking templates and handoffs (error categorization, rework loops, status visibility) to shorten compliance review turnaround.</li>
+      </ul>
+      <div class="tags"><span class="tag">Data Validation</span><span class="tag">Python Automation</span><span class="tag">Excel</span></div>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="when"><span>Jan – Dec 2022</span><span>Beijing</span></div>
+    <div>
+      <div class="co">Beijing TFlying Transducer Technology</div>
+      <div class="ti">Data &amp; Operations Analyst Intern</div>
+      <ul>
+        <li>Cut recurring report preparation time by <b>~60%</b> with Python ETL scripts (batch extraction, schema alignment, dedupe, format normalization) that replaced manual exports.</li>
+        <li>Queried high-frequency telemetry (temperature, voltage, runtime) for 200+ connected devices in MySQL and tuned index and field usage to speed up historical retrieval.</li>
+      </ul>
+      <div class="tags"><span class="tag">ETL</span><span class="tag">MySQL</span><span class="tag">IoT Telemetry</span></div>
+    </div>
+  </div>
+
+  <h2 id="skills">Skills</h2>
+  <dl class="skills">
+    <dt>Programming</dt>
+    <dd><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Scikit-learn</span><span class="tag">Statsmodels</span><span class="tag">Matplotlib</span><span class="tag">R</span><span class="tag">MATLAB</span><span class="tag">Java</span></dd>
+    <dt>AI / LLM</dt>
+    <dd><span class="tag">AI Agents</span><span class="tag">Agent Evaluation</span><span class="tag">Prompt Engineering</span><span class="tag">RAG</span><span class="tag">MCP</span><span class="tag">Function Calling</span><span class="tag">AI Workflow Automation</span></dd>
+    <dt>Data analytics</dt>
+    <dd><span class="tag">A/B Testing</span><span class="tag">Experiment Design</span><span class="tag">Time Series Forecasting</span><span class="tag">Data Cleaning &amp; Wrangling</span><span class="tag">ETL Pipelines</span></dd>
+    <dt>Machine learning</dt>
+    <dd><span class="tag">Linear &amp; Logistic Regression</span><span class="tag">Random Forest</span><span class="tag">Gradient Boosting</span><span class="tag">XGBoost</span><span class="tag">K-Means</span></dd>
+    <dt>Tools &amp; cloud</dt>
+    <dd><span class="tag">Tableau</span><span class="tag">Power BI</span><span class="tag">Excel</span><span class="tag">MySQL</span><span class="tag">Git</span><span class="tag">Jupyter</span><span class="tag">AWS (Redshift, S3)</span><span class="tag">GCP</span><span class="tag">Azure</span></dd>
+  </dl>
+
+  <h2 id="education">Education</h2>
+  <div class="edu">
+    <div class="s">Columbia University</div>
+    <div class="when">Expected Dec 2026</div>
+    <div class="d">M.S. in Business Analytics (STEM) · Columbia Business School &amp; Fu Foundation School of Engineering and Applied Science</div>
+  </div>
+  <div class="edu">
+    <div class="s">Capital University of Economics and Business</div>
+    <div class="when">Sep 2021 – Jul 2025</div>
+    <div class="d">Bachelor of Management in Information Management and Information Systems · Beijing</div>
+  </div>
+
+  <h2 id="contact">Contact</h2>
+  <div class="contact">
+    <p>I'm looking for full-time data and AI analytics roles starting January 2027. The fastest way to reach me is by email.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:gaoxinchen622@gmail.com"><svg viewBox="0 0 24 24"><path d="M2 5h20v14H2zm2 2v.5l8 5 8-5V7zm16 2.8-8 5-8-5V17h16z"/></svg>gaoxinchen622@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/xinchen-gao"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zm6.5 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.2 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4z"/></svg>LinkedIn</a>
+      <a class="btn" href="Gao_Xinchen_Resume.pdf"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 12h8v1.5H8zm0 3h8v1.5H8zm0 3h5v1.5H8z"/></svg>Résumé (PDF)</a>
+    </div>
+  </div>
+
+  <footer>© 2026 Xinchen Gao · Last updated October 2026</footer>
+</main>
+
+<script>
+  document.querySelector(".theme").addEventListener("click",function(){
+    var r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches;
+    r.dataset.theme=dark?"light":"dark";
+    try{localStorage.setItem("theme",r.dataset.theme)}catch(e){}
+  });
+  var links=[].slice.call(document.querySelectorAll('.navlinks a[href^="#"]'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute("href"))});
+  function spy(){
+    var y=scrollY+120,cur=-1;
+    secs.forEach(function(s,i){if(s&&s.offsetTop<=y)cur=i});
+    if(innerHeight+scrollY>=document.body.scrollHeight-4)cur=secs.length-1;
+    links.forEach(function(a,i){a.classList.toggle("on",i===cur)});
+  }
+  addEventListener("scroll",spy,{passive:true});spy();
+</script>
+</body>
+</html>
