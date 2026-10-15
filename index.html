@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Xinchen Gao</title>
+<meta name="description" content="Xinchen Gao is an M.S. in Business Analytics candidate at Columbia University (December 2026) seeking research assistant positions in clinical risk prediction, LLM evaluation in medicine, and biostatistics.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://xinchengao.github.io/">
+<meta property="og:title" content="Xinchen Gao">
+<meta property="og:description" content="Clinical risk prediction and LLM evaluation in medicine. M.S. in Business Analytics, Columbia University.">
+<meta property="og:image" content="https://xinchengao.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0c1322" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fafaf9;--ink:#0f172a;--body:#475569;--muted:#64748b;--faint:#94a3b8;--line:#e7e5e4;
+    --accent:#0f766e;--chip:#ccfbf1;--chipink:#115e59;--hover:rgba(15,23,42,.035);--tile:#fff;color-scheme:light}
+  @media(prefers-color-scheme:dark){:root{
+    --bg:#0c1322;--ink:#e2e8f0;--body:#94a3b8;--muted:#8391a7;--faint:#5b6b84;--line:#1e293b;
+    --accent:#5eead4;--chip:rgba(45,212,191,.1);--chipink:#5eead4;--hover:rgba(148,163,184,.06);--tile:#fff;color-scheme:dark}}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--body);font-family:Inter,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:var(--ink);text-decoration:none}
+  p{margin:0 0 16px}
+  b,strong{color:var(--ink);font-weight:500}
+  ::selection{background:var(--chip);color:var(--ink)}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 48px;display:grid;grid-template-columns:1fr 1.15fr;gap:64px}
+
+  /* left, sticky */
+  .side{position:sticky;top:0;align-self:start;height:100vh;display:flex;flex-direction:column;padding:88px 0 56px}
+  .side img.me{width:112px;height:auto;border-radius:12px;display:block;margin-bottom:28px}
+  h1{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:3.6rem;line-height:1;letter-spacing:-.01em;color:var(--ink);margin:0}
+  .title{color:var(--ink);font-size:1.15rem;font-weight:500;margin:14px 0 10px}
+  .tagline{max-width:22rem;margin:0}
+  .avail{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-size:.84rem;color:var(--muted)}
+  .avail i{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,.18)}
+
+  .toc{list-style:none;margin:56px 0 0;padding:0}
+  .toc a{display:inline-flex;align-items:center;gap:14px;padding:9px 0;font-size:.74rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+  .toc a::before{content:"";width:32px;height:1px;background:var(--faint);transition:width .2s,background .2s}
+  .toc a:hover,.toc a.on{color:var(--ink)}
+  .toc a:hover::before,.toc a.on::before{width:64px;background:var(--ink)}
+
+  .social{margin-top:auto;display:flex;align-items:center;gap:20px}
+  .social a.ic{color:var(--muted);display:grid;place-items:center}
+  .social a.ic:hover{color:var(--ink)}
+  .social svg{width:22px;height:22px;fill:currentColor}
+  .resume{margin-left:6px;font-size:.88rem;font-weight:500;padding:8px 16px;border:1px solid var(--ink);border-radius:8px;color:var(--ink)}
+  .resume:hover{background:var(--ink);color:var(--bg)}
+
+  /* right, scrolls */
+  main{padding:88px 0 80px}
+  section{margin-bottom:112px;scroll-margin-top:88px}
+  .h{display:none}
+  .about p{font-size:1.02rem}
+  .about a{color:var(--ink);font-weight:500;border-bottom:1px solid var(--line)}
+  .about a:hover{border-bottom-color:var(--accent);color:var(--accent)}
+
+  /* experience list */
+  .list{list-style:none;margin:0;padding:0}
+  .item{position:relative;display:grid;grid-template-columns:118px 1fr;gap:20px;padding:20px;margin:0 -20px 12px;border-radius:12px;transition:background .2s,opacity .2s}
+  @media(hover:hover){
+    .list:hover .item{opacity:.55}
+    .list:hover .item:hover{opacity:1;background:var(--hover)}
+  }
+  .when{font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);padding-top:4px;line-height:1.5}
+  .rt{display:flex;gap:12px;align-items:flex-start;margin-bottom:8px}
+  .logo{flex:none;width:30px;height:30px;border-radius:7px;overflow:hidden;background:var(--tile);border:1px solid var(--line);margin-top:1px}
+  .logo img{width:100%;height:100%;display:block}
+  .rt h3{margin:0;font-size:1rem;font-weight:500;color:var(--ink);line-height:1.4}
+  .rt h3 span{color:var(--muted);font-weight:400}
+  .rt .loc{display:block;font-size:.84rem;color:var(--faint);font-weight:400}
+  .item p{font-size:.93rem;margin:0 0 6px}
+  .item ul{margin:0;padding-left:18px;font-size:.93rem}
+  .item li{margin-bottom:4px}
+  .item li::marker{color:var(--faint)}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .tags span{font-size:.74rem;font-weight:500;padding:3px 11px;border-radius:999px;background:var(--chip);color:var(--chipink)}
+  .more{display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-weight:600;color:var(--ink);font-size:.95rem}
+  .more:hover{color:var(--accent)}
+  .more span{transition:transform .2s}
+  .more:hover span{transform:translateX(4px)}
+
+  /* selected work */
+  .case{display:grid;grid-template-columns:118px 1fr;gap:20px;padding:20px;margin:0 -20px 12px;border-radius:12px;transition:background .2s}
+  .case:hover{background:var(--hover)}
+  .metric{font-family:"Instrument Serif",Georgia,serif;font-size:2.3rem;line-height:1;color:var(--ink)}
+  .metric small{display:block;font-family:Inter,sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-top:8px}
+  .case h3{margin:0 0 6px;font-size:1rem;font-weight:500;color:var(--ink)}
+  .case p{font-size:.93rem;margin:0}
+
+  /* education + skills */
+  .edu{display:grid;grid-template-columns:118px 1fr;gap:20px;padding:0 0 22px}
+  .edu h3{margin:0;font-size:1rem;font-weight:500;color:var(--ink)}
+  .edu p{margin:2px 0 0;font-size:.93rem}
+  .skills{display:grid;grid-template-columns:118px 1fr;gap:16px 20px;margin-top:28px;padding-top:28px;border-top:1px solid var(--line)}
+  .skills dt{font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);padding-top:3px}
+  .skills dd{margin:0;font-size:.93rem;color:var(--body)}
+
+  footer{font-size:.84rem;color:var(--faint);max-width:30rem}
+  footer a{color:var(--muted)}
+  footer a:hover{color:var(--ink)}
+
+  @media(max-width:1000px){
+    .wrap{grid-template-columns:1fr;gap:0;padding:0 24px;max-width:680px}
+    .side{position:static;height:auto;padding:56px 0 8px}
+    .toc{display:none}
+    .social{margin-top:32px}
+    main{padding:40px 0 64px}
+    section{margin-bottom:72px;scroll-margin-top:24px}
+    .h{display:block;position:sticky;top:0;z-index:5;margin:0 -24px 16px;padding:14px 24px;font-size:.74rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+  }
+  @media(max-width:560px){
+    .wrap{padding:0 16px}
+    .h{margin:0 -16px 12px;padding:12px 16px}
+    h1{font-size:3rem}
+    .side img.me{width:96px}
+    .item,.case,.edu,.skills{grid-template-columns:1fr;gap:6px}
+    .item,.case{margin:0 -12px 8px;padding:16px 12px}
+    .skills dd{margin-bottom:10px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="side">
+    <img class="me" src="Xinchen_Gao.png" alt="Xinchen Gao" width="688" height="764">
+    <h1>Xinchen Gao</h1>
+    <div class="title">Clinical AI &amp; Biostatistics</div>
+    <p class="tagline">I build clinical risk models that are honest about their uncertainty, and I study when LLMs can and cannot be trusted with medical data.</p>
+    <div class="avail"><i></i>Seeking research assistant positions from January 2027 · New York · STEM OPT</div>
+
+    <ul class="toc">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education &amp; skills</a></li>
+    </ul>
+
+    <div class="social">
+      <a class="ic" href="mailto:gaoxinchen622@gmail.com" aria-label="Email" title="gaoxinchen622@gmail.com"><svg viewBox="0 0 24 24"><path d="M2 5h20v14H2zm2 2v.5l8 5 8-5V7zm16 2.8-8 5-8-5V17h16z"/></svg></a>
+      <a class="ic" href="https://www.linkedin.com/in/xinchen-gao" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.45 2H3.55C2.7 2 2 2.7 2 3.55v16.9C2 21.3 2.7 22 3.55 22h16.9c.85 0 1.55-.7 1.55-1.55V3.55C22 2.7 21.3 2 20.45 2zM8 19H5V9.5h3zM6.5 8.2a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5zM19 19h-3v-4.6c0-1.1 0-2.5-1.5-2.5S12.8 13 12.8 14.3V19h-3V9.5h2.9v1.3h.04c.4-.76 1.4-1.56 2.86-1.56 3.06 0 3.4 2 3.4 4.6z"/></svg></a>
+      <a class="resume" href="Gao_Xinchen_CV.pdf">CV</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="about" class="about">
+      <h2 class="h">About</h2>
+      <p>I'm finishing my <b>M.S. in Business Analytics at Columbia University</b> (December 2026) and looking for a <b>research assistant position</b> in clinical risk prediction, LLM evaluation in medicine, or biostatistics, starting January 2027.</p>
+      <p>Most of my research so far comes from one question: when should a clinician trust a model? In my capstone at <b>Columbia University Irving Medical Center</b>, I built center-specific surgical risk models for high-risk neonates with congenital heart disease, where national registry scores work least well. Along the way I found that a single LLM used for chart abstraction quietly pulled rare anatomies toward common diagnoses, and I replaced it with a multi-LLM consensus that sends the hard cases to clinicians. At <b>Meituan</b> I ran into the same problem from the other side: an LLM judge that rewarded confident prose even when the numbers were wrong.</p>
+      <p>I care about calibration and uncertainty as much as discrimination, about evaluation designs that reflect how a model will actually be used, and about randomized experiments as the final test of whether a tool changes decisions. I work in Python, R, and SQL. The best way to reach me is <a href="mailto:gaoxinchen622@gmail.com">by email</a>.</p>
+    </section>
+
+    <section id="research">
+      <h2 class="h">Research</h2>
+      <ol class="list">
+
+        <li class="item">
+          <div class="when">Jan – May 2026</div>
+          <div>
+            <div class="rt"><div class="logo"><img src="img/logos/nyp.png" alt=""></div><h3>Clinical AI for Surgical Risk in Neonatal Congenital Heart Disease <span>· Research Capstone, Columbia University Irving Medical Center</span><span class="loc">New York · Advisor: Nimrod Goldshtrom, MD, MS</span></h3></div>
+            <ul>
+              <li><b>Center-specific risk model.</b> National STS and PC4 scores are least reliable for the highest-risk neonates. I framed mortality and length-of-stay prediction on a 20-year cohort of 1,500+ neonatal cardiac surgeries, used temporal validation to account for practice drift, and kept penalized logistic regression as the primary model after gradient boosting's advantage failed to hold across eras.</li>
+              <li><b>Multi-LLM chart abstraction.</b> Checking LLM-extracted STS codes against clinician abstraction showed that a single model pulled rare anatomies toward common diagnoses and changed its answer when a note was reordered. A cross-family LLM panel with evidence quoting and retrieved code definitions fixed most of this; because the models' errors were correlated on the rarest codes, those are always routed to clinician review.</li>
+              <li><b>Uncertainty-aware reporting.</b> Each prediction comes with a conformal interval, its main drivers, and the number of comparable past cases, so clinicians can see when the model is extrapolating. The tool was built for the hospital's weekly multidisciplinary case conference.</li>
+            </ul>
+            <div class="tags"><span>Risk prediction</span><span>Calibration</span><span>Conformal prediction</span><span>LLM bias</span><span>REDCap</span></div>
+          </div>
+        </li>
+
+        <li class="item">
+          <div class="when">May – Aug 2026</div>
+          <div>
+            <div class="rt"><div class="logo"><img src="img/logos/meituan.png" alt=""></div><h3>Evaluating LLM Agents for Automated Analytical Reporting <span>· AI Analytics Intern, Meituan</span><span class="loc">Beijing</span></h3></div>
+            <ul>
+              <li><b>Stage-level evaluation.</b> End-to-end checks could not say which step of an agent pipeline had failed, so I scored SQL correctness, extraction completeness, cross-source stitching, and metric consistency separately. Tracing showed many errors came from metrics defined differently across sources; a shared metric dictionary cut recurring report errors by 24.5%.</li>
+              <li><b>Auditing the LLM judge.</b> Calibrating the judge against human labels showed it favored fluent, confident reports even when the numbers were wrong. I moved numeric checks to code, limited the judge to a fixed rubric, and kept a rotating human audit sample.</li>
+              <li>Packaged stable workflows into reusable agent skills used across teams, saving about 10 hours of analysis a week.</li>
+            </ul>
+            <div class="tags"><span>LLM evaluation</span><span>LLM-as-a-judge</span><span>AI agents</span><span>SQL</span></div>
+          </div>
+        </li>
+
+        <li class="item">
+          <div class="when">Mar – Jul 2024</div>
+          <div>
+            <div class="rt"><div class="logo"><img src="img/logos/cueb.png" alt=""></div><h3>Domain-Adapted Language Models for Retail Investor Sentiment <span>· Research Assistant, Capital University of Economics and Business</span><span class="loc">Beijing</span></h3></div>
+            <ul>
+              <li>General sentiment models misread sarcasm and slang in retail investor posts. I scraped a year of comments from Eastmoney Guba, fine-tuned FinBERT, and compared it with the off-the-shelf model and zero-shot LLM classification; after revising the labeling guideline through disagreement review, the adapted model was more accurate and more consistent on informal text.</li>
+            </ul>
+            <div class="tags"><span>NLP</span><span>Fine-tuning</span><span>Hugging Face</span><span>Web scraping</span></div>
+          </div>
+        </li>
+
+      </ol>
+      <a class="more" href="Gao_Xinchen_CV.pdf">View full CV <span>→</span></a>
+    </section>
+
+    <section id="experience">
+      <h2 class="h">Experience</h2>
+      <ol class="list">
+
+        <li class="item">
+          <div class="when">Oct 2026 – Now</div>
+          <div>
+            <div class="rt"><div class="logo"><img src="img/logos/columbia.png" alt=""></div><h3>Course Assistant <span>· Columbia University, IEOR</span><span class="loc">New York · IEOR E4735</span></h3></div>
+            <ul>
+              <li>Support graduate students in quantitative pricing and risk analysis through office hours, grading, and review of modeling exercises.</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="item">
+          <div class="when">Nov – Dec 2024</div>
+          <div>
+            <div class="rt"><div class="logo"><img src="img/logos/tencent.png" alt=""></div><h3>Data Analysis Intern <span>· Tencent Video</span><span class="loc">Beijing</span></h3></div>
+            <ul>
+              <li>Traced viewing funnels for 12.1M users and found the largest drop-off right after the first video ends.</li>
+              <li>Designed a randomized A/B test of the recommendation flow with a pre-specified primary metric, guardrails, and a power analysis; next-video play rate rose 4.5%.</li>
+            </ul>
+            <div class="tags"><span>Randomized experiments</span><span>Retention</span><span>SQL</span><span>Python</span></div>
+          </div>
+        </li>
+
+        <li class="item">
+          <div class="when">Jan – Mar 2024</div>
+          <div>
+            <div class="rt"><div class="logo"><img src="img/logos/xinshichuangyu.png" alt=""></div><h3>Data Analysis Intern <span>· Beijing Xinshichuangyu Technology</span><span class="loc">Beijing · Mobile games</span></h3></div>
+            <ul>
+              <li>Built retention datasets from 300K+ player records and 2 GB+ of gameplay logs, then ran an A/B test on the event entry flow that raised participation 18%.</li>
+            </ul>
+            <div class="tags"><span>Funnel analysis</span><span>A/B testing</span><span>MySQL</span></div>
+          </div>
+        </li>
+
+        <li class="item">
+          <div class="when">Jul – Aug 2023</div>
+          <div>
+            <div class="rt"><div class="logo"><img src="img/logos/ey.png" alt=""></div><h3>Integrity &amp; Compliance Intern <span>· EY</span><span class="loc">Beijing</span></h3></div>
+            <ul>
+              <li>Automated reconciliation of physician engagement and reimbursement records with rule-based validation in Python, validating 150+ records a day.</li>
+            </ul>
+            <div class="tags"><span>Healthcare data</span><span>Data quality</span><span>Python</span></div>
+          </div>
+        </li>
+
+      </ol>
+    </section>
+
+    <section id="education">
+      <h2 class="h">Education &amp; skills</h2>
+      <div class="edu">
+        <div class="when">Expected Dec 2026</div>
+        <div><div class="rt"><div class="logo"><img src="img/logos/columbia.png" alt=""></div><div><h3>Columbia University</h3><p>M.S. in Business Analytics (STEM), Columbia Business School and Columbia Engineering</p></div></div></div>
+      </div>
+      <div class="edu">
+        <div class="when">2021 – 2025</div>
+        <div><div class="rt"><div class="logo"><img src="img/logos/cueb.png" alt=""></div><div><h3>Capital University of Economics and Business</h3><p>B.Mgt. in Information Management and Information Systems</p></div></div></div>
+      </div>
+      <dl class="skills">
+        <dt>Statistics</dt><dd>Penalized regression, calibration and decision curve analysis, conformal prediction, missing-data imputation, gradient boosting, SHAP</dd>
+        <dt>Experiments</dt><dd>Randomized A/B testing, power analysis, guardrail metrics</dd>
+        <dt>LLMs</dt><dd>LLM bias evaluation, multi-LLM consensus, LLM-as-a-judge, agent evaluation, fine-tuning (Hugging Face), RAG, MCP</dd>
+        <dt>Clinical data</dt><dd>REDCap, de-identified registry data, diagnosis and procedure coding, temporal validation</dd>
+        <dt>Languages</dt><dd>Python (PyTorch, scikit-learn, statsmodels, pandas), R, SQL</dd>
+      </dl>
+    </section>
+
+    <footer>
+      <p>Designed and built by Xinchen Gao. Set in Instrument Serif and Inter, hosted on GitHub Pages.</p>
+    </footer>
+  </main>
+
+</div>
+<script>
+  var links=[].slice.call(document.querySelectorAll(".toc a"));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute("href"))});
+  function spy(){
+    var y=scrollY+innerHeight*.35,cur=0;
+    secs.forEach(function(s,i){if(s.offsetTop<=y)cur=i});
+    if(innerHeight+scrollY>=document.documentElement.scrollHeight-4)cur=secs.length-1;
+    links.forEach(function(a,i){a.classList.toggle("on",i===cur)});
+  }
+  addEventListener("scroll",spy,{passive:true});spy();
+</script>
+</body>
+</html>
